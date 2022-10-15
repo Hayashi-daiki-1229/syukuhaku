@@ -1,0 +1,31 @@
+<h3>部屋の新規登録</h3>
+
+<%= form_with model: @room do |f| %>
+  <div class = new_room>
+    <ul>
+      <li>
+        <%= f.label :ルーム名 %><br>
+        <%= f.text_field :room_name %></br>
+      </li>
+      <li>
+        <%= f.label :ルーム紹介, class: "room_detail_tag" %><br>
+        <%= f.text_area :room_detail, class: "room_detail_field" %></br>
+      </li>
+      <li>
+        <%= f.label :料金 %><br>
+        <%= f.number_field :price %></br>
+      </li>
+      <li>
+        <%= f.label :住所 %><br>
+        <%= f.text_field :address %></br>
+      </li>
+      <li>
+        <%= f.label :ルーム画像 %><br><br>
+        <%= f.file_field :room_img %></br>
+      </li>
+    </ul>
+  </div>
+
+  <%= f.submit "作成" %>
+
+<% end %>

@@ -1,0 +1,74 @@
+<h3>予約内容確認</h3>
+
+
+<%= form_for @reserve do |f| %>
+  <% if @reserve.confirming.blank? %>
+    <div class = reserve_new>
+      <ul>
+        <li>
+          <%= f.label :開始日 %>
+          ：<%= @reserve.start_date %>
+          <%= f.hidden_field :start_date %> 
+        </li>
+
+        <li>
+          <%= f.label :終了日 %>
+          ：<%= @reserve.end_date %>
+          <%= f.hidden_field :end_date %> 
+        </li>
+
+        <li>
+          <%= f.label :人数 %>
+          ：<%= @reserve.people %>人
+          <%= f.hidden_field :people %> 
+        </li>
+        <li>
+          <%= f.label :使用日数 %>
+          ：<%= @days %>日間
+        </li>
+        <li>
+          <%= f.label :合計金額 %>
+          ￥<%=  @price %>
+        </li>
+      </ul>
+  <% else %>
+      <ul>
+        <li>
+          <%= f.label :開始日 %>
+          ：<%= @reserve.start_date.strftime("%Y年%m月%d日") %>
+          <%= f.hidden_field :start_date %> 
+        </li>
+        <li>
+          <%= f.label :終了日 %>
+          ：<%= @reserve.end_date.strftime("%Y年%m月%d日") %>
+          <%= f.hidden_field :end_date %> 
+        </li>
+        <li>
+          <%= f.label :人数 %>
+          ：<%= @reserve.people %>人
+          <%= f.hidden_field :people %> 
+        </li>
+        <li>
+          <%= f.label :使用日数 %>
+          ：<%= @days %>日間
+        </li>
+        <li>
+          <%= f.label :合計金額 %>
+          ￥<%=  @price %>
+        </li>
+      </ul>
+  <% end %>
+    </div>
+
+
+  <%= f.hidden_field :room_id, value: @room.id %> 
+
+  <p>以上の内容でよろしければ確定ボタンを押してください</p>
+
+  <%= f.submit "予約を確定する" %>
+
+  <%=link_to room_path(@reserve.room_id) do %>
+    <button class="btn btn-secondary btn-lg" >部屋詳細に戻る</button>
+  <%end%>
+
+<% end %>

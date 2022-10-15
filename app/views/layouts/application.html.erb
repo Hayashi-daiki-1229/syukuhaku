@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TaskApp</title>
+    <title>Syukuhakuapp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,92 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if flash[:notice] %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <header>  
+      <div class ="header_content">
+        <ul>
+          <li>
+            <%= link_to root_path do %>
+              <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="poteshare" title="poteshare">
+            <% end %>
+          </li>
+          <% if user_signed_in? %>
+            <li>   
+              <%= link_to user_path(current_user), class: "navbar_name" do %>
+                <% if current_user.user_img.attached? %>
+                  <%= image_tag current_user.user_img, size: '80x80' %>
+                <% else %>  
+                  <%= image_tag "no_image_png.jpeg", size: '80x80' %>
+                <% end %>
+            </li> 
+            <li class = navbar_name >
+              <%= current_user.user_name %>
+            </li>
+              <% end %>
+
+                  <li>
+                    <%= link_to new_room_path, class: "navbar_item" do %>
+                      <p>部屋の新規登録</p>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to reserves_path, class: "navbar_item" do %>
+                      <p>予約一覧</p>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to destroy_user_session_path, method: :delete, class: "navbar_item" do %>
+                      <p>ログアウト</p>
+                    <% end %>
+                  </li>
+              
+            <% else %>
+                  <li>
+                    <%= link_to new_user_registration_path, class: "navbar_item" do %>
+                    <p>新規登録</p>
+                    <% end %>
+                  </li>
+
+                  <li>
+                    <%= link_to new_user_session_path, class: "navbar_item" do %>
+                    <p>ログイン</p>
+                    <% end %>
+                  </li>
+              <% end %> 
+          </ul>  
+      </div>  
+
+      <div class = header_search>
+        <%= search_form_for @q, class: "search_list" do |f| %>
+          <ul>
+            <li>
+              <%= f.search_field :address_cont, placeholder: 'エリア' %>
+                </br>
+              <%= f.submit "エリア検索"%>
+            </li>
+
+            <li>
+              <%= f.search_field :room_name_or_room_detail_cont, placeholder: 'キーワード' %>
+                </br>
+              <%= f.submit "キーワード検索" %>
+            </li>
+          </ul>  
+        <% end %>
+      </div>
+
+        <div class = main_content>
+          <p></p>
+        </div>
+    
+    </header>
+      <%= yield %>
+  
   </body>
 </html>

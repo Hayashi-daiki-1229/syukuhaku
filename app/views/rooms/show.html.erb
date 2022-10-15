@@ -1,0 +1,55 @@
+
+<%= image_tag @room.room_img, size: '430x400', class: "show_img" %>
+
+<div class = show_room>
+  <ul>
+    <li>
+      <h3><%= @room.room_name %></h3>
+    </li>
+    <li>
+      住所：<%= @room.address %>
+    </li>
+
+    <p>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+
+    <li>
+      <%= simple_format @room.room_detail %>
+    </li>
+
+    <p>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+
+    <li>
+      ￥<%= @room.price %>/１日
+    </li>
+  </ul>
+</div>
+
+
+<div class = reserve_room>
+  <%= form_with model: @reserve, method: :post, url: reserves_new_path  do |f| %>  
+    <%= f.hidden_field :room_id, value: @room.id %>
+           
+    <%= f.label :予約開始日 %>
+    <%= f.date_field :start_date %>
+
+    <%= f.label :予約終了日 %>
+    <%= f.date_field :end_date %>
+
+    <%= f.label :人数 %>
+    <%= f.number_field :people %>
+
+    <% if user_signed_in? %>
+      <%= f.submit "予約確認画面へ" %>
+    <% else %>
+      <%=link_to new_user_session_path do %>
+        <button class="btn btn-secondary btn-lg" >ログイン</button>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+

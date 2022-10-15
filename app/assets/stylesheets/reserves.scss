@@ -1,0 +1,49 @@
+// Place all the styles related to the reserves controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.reserve_new li {
+  list-style: none;
+  margin: 10px 5px;
+  border: solid;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+}
+
+.reserve_new ul {
+  display: block;
+}
+
+.reserve_new {
+  padding: 10px;
+}
+
+.reserve_show li {
+  list-style: none;
+  margin: 10px 5px;
+  border: solid;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+}
+
+.reserve_show ul {
+  display: block;
+}
+
+.reserve_index {
+  width: 100%;
+  background-color: #fff4ea;
+  margin-bottom: 50px;
+}
+
+.reserve_index li {
+  list-style: none;
+  margin: 5px 1px;
+  padding: 10px;
+}
+
+.room_index_tag {
+ color: black;
+}

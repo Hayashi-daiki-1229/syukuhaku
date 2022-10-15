@@ -1,0 +1,16 @@
+
+<div class = main>
+  <h1>Potepan Shareでまだ体験したことのない旅をしよう</h1>
+
+  <%= search_form_for @q, class: "search_list" do |f| %>
+    <%= f.label :エリア検索 %>
+    <%= f.search_field :address_cont, placeholder: '東京' %>
+    <% f.submit %>
+  <% end %>
+
+  <%= search_form_for @q, class: "search_list" do |f| %>
+    <%= f.label :部屋一覧を見てみる %>
+    <%= f.submit "一覧へ" %>
+  <% end %>
+
+</div>

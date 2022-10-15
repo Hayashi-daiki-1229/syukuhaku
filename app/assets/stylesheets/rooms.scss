@@ -1,0 +1,63 @@
+
+.index_content{
+  text-decoration: none;
+}
+
+.index {
+border: solid 3px gray;
+display: inline-flex;
+flex-wrap: wrap;
+width: 230px;
+margin: 10px;
+padding: 10px 0;
+}
+
+.index li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.index ul {
+  display: block;
+}
+
+.index_name {
+  margin: 0 5px 5px 5px;
+}
+
+.show_img {
+  margin: 10px 80px 10px 10px;
+  display: flex;
+  float: left;
+}
+
+
+.show_room ul{
+  display: block;
+  float: left;
+}
+
+.show_room li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.reserve_room {
+  background-color: peachpuff;
+  float:left;
+  padding: 0 0 50px 0;
+}
+
+.new_room li {
+  list-style: none;
+  margin: 10px 5px;
+}
+
+.new_room ul{
+  display: block;
+}
+
+.room_detail_field {
+  width: auto;
+  height: 100px;
+}
