@@ -1,0 +1,42 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.user_show li {
+  list-style: none;
+  margin: 5px 1px;
+  padding: 10px;
+  border: solid;
+  border-color: gray;
+  border-radius: 8px;
+}
+
+.user_show ul {
+  display: block;
+  padding-bottom: 10px;
+
+}
+
+.user_edit li {
+  list-style: none;
+  margin: 5px 1px;
+  padding: 10px;
+}
+
+.user_edit ul {
+  display: block;
+  text-align: left;
+}
+
+
+.user_edit_link{
+  background-color: orange;
+  text-decoration: none;
+  margin: 5px 1px;
+  padding: 10px;
+  border: solid;
+  border-color: gray;
+  border-radius: 8px;
+  color: white;
+}

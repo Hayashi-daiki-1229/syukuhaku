@@ -1,0 +1,28 @@
+<h3>ユーザー情報更新</h3>
+
+<div class ="edit_view">
+  <%= form_for @user do |f| %>
+    <div class = user_edit>
+      <ul>
+        <li>
+          <%= f.label :ユーザー名 %>
+          <%= f.text_field :user_name %>
+        </li>
+        <li>
+          <%= f.label :メールアドレス %>
+          <%= f.text_field :email %>
+        </li>
+        <li>
+          <%= f.label :自己紹介 %>
+          <%= f.text_field :profile %>
+        </li>
+        <li>
+          <%= f.label :アイコン画像 %>
+          <%= f.file_field :user_img %><br>
+        </li>
+      </ul>
+
+      <%= f.submit "更新" %>
+
+    </div>
+  <% end %>

@@ -1,0 +1,22 @@
+<h1>ルーム一覧　<%= @rooms.count%>件数</h1>
+
+<% @rooms.each do |room| %>
+  <div class = index>
+    <%= link_to room_path(room), class: "index_content" do %>
+      <%= image_tag room.room_img, size: '230x200', class: "index_img" %>
+        <ul>
+          <li class = name_address>
+            <h3 class = index_name><%= room.room_name %></h3>
+          </li>
+          <li class = name_address>
+            <%= room.address %>
+          </li>
+          <li>
+            ￥<%= room.price %>
+          </li>
+        </ul>
+    <% end %>
+  </div>  
+<% end %>
+
+  

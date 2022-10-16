@@ -1,0 +1,45 @@
+<h3>予約一覧</h3>
+
+<% @reserves.each do |reserve| %>
+  <div class = reserve_index>
+    <%= link_to room_path(reserve.room_id), class: "index_content" do %>
+      <ul>
+        <li>
+          <p class = room_index_tag>部屋画像</p>
+            <% if reserve.room.room_img.attached? %>
+              <%= image_tag reserve.room.room_img, size: '200x200' %>
+            <% else %>  
+              <%= image_tag "no_image.png", size: '200x200' %>
+            <% end %>
+        </li>
+        <li>
+          <p class = room_index_tag>部屋の名前</p>
+          <%= reserve.room.room_name %>
+        </li>
+        <li>
+          <p class = room_index_tag>部屋の説明</p>
+          <%= reserve.room.room_detail %>
+        </li>
+        <li>
+          <p class = room_index_tag>合計金額</p>
+          <%= reserve.room.price.to_i * reserve.people * (reserve.end_date - reserve.start_date).to_i %>円
+        </li>
+        <li>
+          <p class = room_index_tag>開始日</p>
+          <%= reserve.start_date %>
+        </li>
+        <li>
+          <p class = room_index_tag>終了日</p>
+          <%= reserve.end_date %>
+        </li>
+        <li>
+          <p class = room_index_tag>予約確定日</p>
+          <%= reserve.created_at.to_s(:datetime_jp) %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+<% end %>
+
+
+
